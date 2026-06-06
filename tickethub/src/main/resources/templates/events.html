@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>TicketHub</title>
+  </head>
+  <body>
+    <h1>Events</h1>
+
+    <a href="/add">Add Event</a>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Location</th>
+      </tr>
+
+      <tr th:each="event : ${events}">
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.title}"></td>
+        <td th:text="${event.category}"></td>
+        <td th:text="${event.location}"></td>
+      </tr>
+    </table>
+  </body>
+</html>

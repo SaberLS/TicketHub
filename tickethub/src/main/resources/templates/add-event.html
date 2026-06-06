@@ -1,0 +1,38 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add Event</title>
+  </head>
+  <body>
+    <h1>Add Event</h1>
+
+    <form
+      th:action="@{/add}"
+      th:object="${event}"
+      method="post"
+    >
+      <label>Title:</label>
+      <input
+        type="text"
+        th:field="*{title}"
+      />
+      <br /><br />
+
+      <label>Category:</label>
+      <input
+        type="text"
+        th:field="*{category}"
+      />
+      <br /><br />
+
+      <label>Location:</label>
+      <input
+        type="text"
+        th:field="*{location}"
+      />
+      <br /><br />
+
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
