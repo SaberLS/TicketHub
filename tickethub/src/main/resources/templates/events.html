@@ -2,18 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>TicketHub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Events</h1>
+    <h1 class="mb-4">TicketHub</h1>
 
-    <a href="/add">Add Event</a>
+    <a
+      href="/add"
+      class="btn btn-primary mb-3"
+    >
+      Add Event
+    </a>
 
-    <table border="1">
+    <div
+      th:if="${param.success}"
+      class="alert alert-success"
+    >
+      Event added successfully!
+    </div>
+    <table class="table table-striped table-bordered">
       <tr>
         <th>ID</th>
         <th>Title</th>
         <th>Category</th>
         <th>Location</th>
+        <th>Date</th>
+        <th>Price</th>
       </tr>
 
       <tr th:each="event : ${events}">
@@ -21,6 +38,8 @@
         <td th:text="${event.title}"></td>
         <td th:text="${event.category}"></td>
         <td th:text="${event.location}"></td>
+        <td th:text="${event.eventDate}"></td>
+        <td th:text="${event.ticketPrice + ' PLN'}"></td>
       </tr>
     </table>
   </body>
