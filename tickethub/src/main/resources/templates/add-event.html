@@ -4,6 +4,13 @@
     <title>Add Event</title>
   </head>
   <body>
+    <style>
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    </style>
+
     <h1>Add Event</h1>
 
     <form
@@ -16,13 +23,29 @@
         type="text"
         th:field="*{title}"
       />
+
+      <div
+        th:if="${#fields.hasErrors('title')}"
+        th:errors="*{title}"
+      ></div>
       <br /><br />
 
       <label>Category:</label>
-      <input
-        type="text"
-        th:field="*{category}"
-      />
+
+      <select th:field="*{category}">
+        <option value="">Choose category</option>
+
+        <option
+          th:each="category : ${categories}"
+          th:value="${category}"
+          th:text="${category}"
+        ></option>
+      </select>
+
+      <div
+        th:if="${#fields.hasErrors('category')}"
+        th:errors="*{category}"
+      ></div>
       <br /><br />
 
       <label>Location:</label>
@@ -30,9 +53,14 @@
         type="text"
         th:field="*{location}"
       />
+
+      <div
+        th:if="${#fields.hasErrors('location')}"
+        th:errors="*{location}"
+      ></div>
       <br /><br />
 
-      <button type="submit">Save</button>
+      <button type="submit">Save</button>@
     </form>
   </body>
 </html>

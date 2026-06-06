@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import pl.wszib.java.advanced.tickethub.entity.Event;
+import pl.wszib.java.advanced.tickethub.entity.event.Event;
 import pl.wszib.java.advanced.tickethub.repository.EventRepository;
 
 @Service
